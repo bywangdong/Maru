@@ -218,8 +218,8 @@ swift package clean
 - The canonical local release entry point is `./Scripts/publish-release.sh --publish`; it runs the complete preflight itself and must be executed outside a restrictive Codex sandbox. Use `./Scripts/release-preflight.sh --publish` only for an optional read-only preview.
 - Do not conclude that `Maru Release Signing` is missing from a sandboxed `security find-identity` result. Sandbox Keychain visibility can return a false `0 valid identities`; repeat the preflight outside the sandbox.
 - Prefer the proven local signed release path until every GitHub Actions signing secret is confirmed. Workflow files alone are not proof that CI publishing is configured.
-- The current public Sparkle feed is `https://iobee.github.io/Maru/appcast.xml`, served from the `gh-pages` branch root.
-- The GitHub repository is `iobee/Maru`.
+- The current public Sparkle feed is `https://bywangdong.github.io/Maru/appcast.xml`, served from the `gh-pages` branch root.
+- The GitHub repository is `bywangdong/Maru`.
 - Sparkle's public EdDSA key is committed in `Sources/Maru/Info.plist`; the private EdDSA key must never be committed.
 
 ### Versioning
@@ -269,16 +269,16 @@ VERSION="$(/usr/libexec/PlistBuddy -c 'Print :CFBundleShortVersionString' Source
 TAG="v$VERSION"
 DMG="Release/Maru-$VERSION.dmg"
 
-env -u GITHUB_TOKEN -u GH_TOKEN gh release upload "$TAG" "$DMG" --clobber --repo iobee/Maru
-env -u GITHUB_TOKEN -u GH_TOKEN gh release edit "$TAG" --draft=false --prerelease --repo iobee/Maru
-env -u GITHUB_TOKEN -u GH_TOKEN gh release view "$TAG" --repo iobee/Maru
+env -u GITHUB_TOKEN -u GH_TOKEN gh release upload "$TAG" "$DMG" --clobber --repo bywangdong/Maru
+env -u GITHUB_TOKEN -u GH_TOKEN gh release edit "$TAG" --draft=false --prerelease --repo bywangdong/Maru
+env -u GITHUB_TOKEN -u GH_TOKEN gh release view "$TAG" --repo bywangdong/Maru
 ```
 
 If the release does not exist yet, create it with:
 
 ```bash
 env -u GITHUB_TOKEN -u GH_TOKEN gh release create "$TAG" "$DMG" \
-  --repo iobee/Maru \
+  --repo bywangdong/Maru \
   --title "Maru $VERSION" \
   --target "$(git rev-parse HEAD)" \
   --generate-notes \
@@ -303,8 +303,8 @@ cp "Release/Maru-$VERSION.dmg" "$FEED_DIR/"
 
 .build/artifacts/sparkle/Sparkle/bin/generate_appcast \
   --ed-key-file "$SPARKLE_KEY_FILE" \
-  --download-url-prefix "https://github.com/iobee/Maru/releases/download/$TAG/" \
-  --link "https://github.com/iobee/Maru/releases/tag/$TAG" \
+  --download-url-prefix "https://github.com/bywangdong/Maru/releases/download/$TAG/" \
+  --link "https://github.com/bywangdong/Maru/releases/tag/$TAG" \
   --maximum-deltas 0 \
   -o "$FEED_DIR/appcast.xml" \
   "$FEED_DIR"
@@ -332,7 +332,7 @@ git -C /tmp/maru-gh-pages commit -m "Publish ${VERSION} appcast"
 git -C /tmp/maru-gh-pages push origin HEAD:gh-pages
 git worktree remove /tmp/maru-gh-pages
 
-curl -fsSL https://iobee.github.io/Maru/appcast.xml | head -40
+curl -fsSL https://bywangdong.github.io/Maru/appcast.xml | head -40
 ```
 
 If the DMG contains a universal binary, do not add `sparkle:hardwareRequirements=arm64`. Only constrain hardware when the published app actually requires it.

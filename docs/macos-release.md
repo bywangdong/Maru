@@ -45,7 +45,7 @@ Local builds can leave this unset to use the existing default Keychain profile.
 Set `MACOS_SIGN_IDENTITY` and `MACOS_TEAM_ID` as repository variables. Supply
 `MACOS_CERTIFICATE_BASE64`, `MACOS_CERTIFICATE_PASSWORD`, `APPLE_ID`, and
 `APPLE_APP_SPECIFIC_PASSWORD` as repository secrets. HiTranslator also needs its
-existing `RELEASES_GITHUB_TOKEN` for the separate `iobee/hiTranslator-releases` repo.
+existing `RELEASES_GITHUB_TOKEN` for the separate `bywangdong/hiTranslator-releases` repo.
 
 Existing installations keep their bundle identifiers. Moving from ad-hoc or
 self-signed builds to Developer ID can require a one-time permission reauthorization.

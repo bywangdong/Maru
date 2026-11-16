@@ -15,7 +15,7 @@ Maru 是一款 macOS 开源工具，可自动将窗口优雅地移动到屏幕�
 
 ### 安装包（推荐）
 
-前往 [Releases](https://github.com/iobee/Maru/releases) 页面，下载最新版本的 DMG 文件，打开后将 **Maru.app** 拖入「应用程序」文件夹即可。
+前往 [Releases](https://github.com/bywangdong/Maru/releases) 页面，下载最新版本的 DMG 文件，打开后将 **Maru.app** 拖入「应用程序」文件夹即可。
 
 ### 本地编译
 

@@ -252,17 +252,17 @@ DMG="Release/Maru-$VERSION.dmg"
 ls -lh "$DMG"
 shasum -a 256 "$DMG"
 
-env -u GITHUB_TOKEN -u GH_TOKEN gh release view "$TAG" --repo iobee/Maru
-env -u GITHUB_TOKEN -u GH_TOKEN gh release upload "$TAG" "$DMG" --clobber --repo iobee/Maru
-env -u GITHUB_TOKEN -u GH_TOKEN gh release edit "$TAG" --draft=false --prerelease --repo iobee/Maru
-env -u GITHUB_TOKEN -u GH_TOKEN gh release view "$TAG" --repo iobee/Maru
+env -u GITHUB_TOKEN -u GH_TOKEN gh release view "$TAG" --repo bywangdong/Maru
+env -u GITHUB_TOKEN -u GH_TOKEN gh release upload "$TAG" "$DMG" --clobber --repo bywangdong/Maru
+env -u GITHUB_TOKEN -u GH_TOKEN gh release edit "$TAG" --draft=false --prerelease --repo bywangdong/Maru
+env -u GITHUB_TOKEN -u GH_TOKEN gh release view "$TAG" --repo bywangdong/Maru
 ```
 
 If the release does not exist:
 
 ```bash
 env -u GITHUB_TOKEN -u GH_TOKEN gh release create "$TAG" "$DMG" \
-  --repo iobee/Maru \
+  --repo bywangdong/Maru \
   --title "Maru $VERSION" \
   --target "$(git rev-parse HEAD)" \
   --generate-notes \
@@ -287,8 +287,8 @@ cp "Release/Maru-$VERSION.dmg" "$FEED_DIR/"
 
 .build/artifacts/sparkle/Sparkle/bin/generate_appcast \
   --ed-key-file "$SPARKLE_KEY_FILE" \
-  --download-url-prefix "https://github.com/iobee/Maru/releases/download/$TAG/" \
-  --link "https://github.com/iobee/Maru/releases/tag/$TAG" \
+  --download-url-prefix "https://github.com/bywangdong/Maru/releases/download/$TAG/" \
+  --link "https://github.com/bywangdong/Maru/releases/tag/$TAG" \
   --maximum-deltas 0 \
   -o "$FEED_DIR/appcast.xml" \
   "$FEED_DIR"
@@ -316,7 +316,7 @@ git worktree remove /tmp/maru-gh-pages
 Verify the public feed:
 
 ```bash
-curl -fsSL https://iobee.github.io/Maru/appcast.xml | head -40
+curl -fsSL https://bywangdong.github.io/Maru/appcast.xml | head -40
 ```
 
 Do not manually write Sparkle signatures. Use `generate_appcast`.
@@ -345,7 +345,7 @@ Required repository secret:
 
 Repository setup:
 
-- GitHub Pages should serve from the `gh-pages` branch root so `appcast.xml` is available at `https://iobee.github.io/Maru/appcast.xml`.
+- GitHub Pages should serve from the `gh-pages` branch root so `appcast.xml` is available at `https://bywangdong.github.io/Maru/appcast.xml`.
 
 ## Validation
 

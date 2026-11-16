@@ -9,11 +9,11 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 SOURCE_PLIST_PATH="$ROOT_DIR/Sources/Maru/Info.plist"
 PROJECT_CONFIG_PATH="$ROOT_DIR/project.yml"
-REPOSITORY="${MARU_GITHUB_REPOSITORY:-iobee/Maru}"
+REPOSITORY="${MARU_GITHUB_REPOSITORY:-bywangdong/Maru}"
 RELEASE_BRANCH="${MARU_RELEASE_BRANCH:-main}"
 SIGNING_IDENTITY="${MACOS_SIGN_IDENTITY:-${MARU_CODE_SIGN_IDENTITY:-Maru Release Signing}}"
 LOGIN_KEYCHAIN="${MARU_LOGIN_KEYCHAIN:-${HOME}/Library/Keychains/login.keychain-db}"
-PUBLIC_APPCAST_URL="${MARU_PUBLIC_APPCAST_URL:-https://iobee.github.io/Maru/appcast.xml}"
+PUBLIC_APPCAST_URL="${MARU_PUBLIC_APPCAST_URL:-https://bywangdong.github.io/Maru/appcast.xml}"
 
 usage() {
     cat <<EOF
@@ -32,7 +32,7 @@ Optional environment:
   MARU_CODE_SIGN_IDENTITY         Stable signing identity (default: Maru Release Signing).
   MARU_LOGIN_KEYCHAIN             Keychain to inspect (default: login.keychain-db).
   MARU_RELEASE_BRANCH             Required release branch (default: main).
-  MARU_GITHUB_REPOSITORY          GitHub owner/repository (default: iobee/Maru).
+  MARU_GITHUB_REPOSITORY          GitHub owner/repository (default: bywangdong/Maru).
 EOF
 }
 
@@ -193,8 +193,8 @@ if [[ "$CHECK_REMOTE" -eq 1 ]]; then
 
     ORIGIN_URL="$(git remote get-url origin)"
     case "$ORIGIN_URL" in
-        *github.com/iobee/Maru.git|*github.com/iobee/Maru) ;;
-        *) fail "origin does not point to iobee/Maru: $ORIGIN_URL" ;;
+        *github.com/bywangdong/Maru.git|*github.com/bywangdong/Maru) ;;
+        *) fail "origin does not point to bywangdong/Maru: $ORIGIN_URL" ;;
     esac
 
     if [[ "${CODEX_SANDBOX_NETWORK_DISABLED:-}" == "1" ]]; then
