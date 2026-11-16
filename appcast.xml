@@ -3,25 +3,22 @@
     <channel>
         <title>Maru</title>
         <item>
-            <title>1.0.0-beta.10</title>
-            <pubDate>Thu, 15 Oct 2026 01:10:28 +0800</pubDate>
-            <link>https://github.com/iobee/Maru/releases/tag/v1.0.0-beta.10</link>
-            <sparkle:version>10</sparkle:version>
-            <sparkle:shortVersionString>1.0.0-beta.10</sparkle:shortVersionString>
+            <title>1.0.0-beta.11</title>
+            <pubDate>Mon, 16 Nov 2026 22:21:10 +0800</pubDate>
+            <link>https://github.com/bywangdong/Maru/releases/tag/v1.0.0-beta.11</link>
+            <sparkle:version>11</sparkle:version>
+            <sparkle:shortVersionString>1.0.0-beta.11</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
-            <description sparkle:format="markdown"><![CDATA[本次 beta 主要升级 macOS 签名与发行流程。
+            <description sparkle:format="markdown"><![CDATA[Maru 1.0.0-beta.11
 
-- 使用 Developer ID 正式签名，覆盖应用、Sparkle 内置组件及 DMG。
-- 应用与安装包均通过 Apple 公证并附加公证票据。
-- 已下载公开 Release 产物，核对 SHA-256、版本及 Gatekeeper 接受状态。
-- 修复发行脚本的证书校验参数与公证记录收集路径，完整 CI 已通过。
+- 将 Sparkle 更新源切换至 `https://bywangdong.github.io/Maru/appcast.xml`，修复 GitHub 账号更名后的更新地址。
+- 更新发布页、反馈和帮助链接；保留原应用标识、用户设置及 Sparkle 更新签名公钥。
+- 安装包使用 Developer ID 签名并通过 Apple 公证。
 
-安装包为 Universal 版本，支持 Intel 与 Apple Silicon，要求 macOS 13 或更新版本。从旧自签名版升级后，macOS 可能要求重新授予辅助功能或自动化权限。
-
-[签名发布工作流](https://github.com/iobee/Maru/actions/runs/38603211482)
+**旧版本迁移**：原 `iobee.github.io` 更新地址已失效，不会自动跳转。请下载本版本 DMG，将 Maru 替换到 Applications 一次；之后即可使用新的应用内更新通道。已有规则和设置会保留。
 
 ]]></description>
-            <enclosure url="https://github.com/iobee/Maru/releases/download/v1.0.0-beta.10/Maru-1.0.0-beta.10.dmg" length="7469339" type="application/octet-stream" sparkle:edSignature="6miWzXr3i9kk3nfqs08BdoQlDkQA8mtXSR7i8KGvOYVrDICkUqQK0yOZ2GG657w7D9BHCrJuQaSrcRKG8HtUCQ=="/>
+            <enclosure url="https://github.com/bywangdong/Maru/releases/download/v1.0.0-beta.11/Maru-1.0.0-beta.11.dmg" length="7472260" type="application/octet-stream" sparkle:edSignature="f7yi3dc+JYC8T5cg6Ha0P/l2qyG+5F9f+8rpOPuqw2O71AIV2dA5buiqGX4v/z9Nau1EDin+7ONJi8GgRfPnAg=="/>
         </item>
     </channel>
 </rss>
